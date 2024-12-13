@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', (event) => {
     const options = {
-        id: '1038824448', // Reemplaza esto con el ID de tu video de Vimeo
+        id: '1038824859', // Reemplaza esto con el ID de tu video de Vimeo
         background: true,
         autopause: false,
         autoplay: true,
