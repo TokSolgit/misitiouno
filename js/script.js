@@ -1,18 +1,41 @@
-function adjustVideoSize() {
-    const videos = document.querySelectorAll('.background-video');
-    const windowRatio = window.innerWidth / window.innerHeight;
-    const videoRatio = 16 / 9; // Asumiendo que el video es 16:9
+document.addEventListener('DOMContentLoaded', (event) => {
+    const options = {
+        id: '1038824448', // Reemplaza esto con el ID de tu video de Vimeo
+        background: true,
+        autopause: false,
+        autoplay: true,
+        byline: false,
+        controls: false,
+        loop: true,
+        muted: true,
+        portrait: false,
+        title: false
+    };
 
-    videos.forEach(video => {
-        if (windowRatio < videoRatio) {
-            video.style.width = '100%';
-            video.style.height = 'auto';
-        } else {
-            video.style.width = 'auto';
-            video.style.height = '100%';
+    const player1 = new Vimeo.Player('background-video-1', options);
+    const player2 = new Vimeo.Player('background-video-2', options);
+
+    player1.setVolume(0);
+    player2.setVolume(0);
+
+    function resizeVideo() {
+        const width = window.innerWidth;
+        const height = window.innerHeight;
+        const aspectRatio = 16 / 9;
+
+        let newWidth = width;
+        let newHeight = width / aspectRatio;
+
+        if (newHeight < height) {
+            newHeight = height;
+            newWidth = height * aspectRatio;
         }
-    });
-}
 
-window.addEventListener('load', adjustVideoSize);
-window.addEventListener('resize', adjustVideoSize);
+        player1.setWidth(newWidth).setHeight(newHeight);
+        player2.setWidth(newWidth).setHeight(newHeight);
+    }
+
+    window.addEventListener('resize', resizeVideo);
+    resizeVideo();
+});
+
