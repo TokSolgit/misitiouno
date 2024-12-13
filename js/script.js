@@ -1,10 +1,18 @@
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
+function adjustVideoSize() {
+    const videos = document.querySelectorAll('.background-video');
+    const windowRatio = window.innerWidth / window.innerHeight;
+    const videoRatio = 16 / 9; // Asumiendo que el video es 16:9
 
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
-        });
+    videos.forEach(video => {
+        if (windowRatio < videoRatio) {
+            video.style.width = '100%';
+            video.style.height = 'auto';
+        } else {
+            video.style.width = 'auto';
+            video.style.height = '100%';
+        }
     });
-});
+}
 
+window.addEventListener('load', adjustVideoSize);
+window.addEventListener('resize', adjustVideoSize);
