@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -7,6 +9,8 @@
 body, html {
     height: 100%;
     font-family: Arial, sans-serif;
+    overflow-x: hidden;
+    background-color: #000;
 }
 
 nav {
@@ -15,6 +19,7 @@ nav {
     width: 100%;
     background-color: rgba(0, 0, 0, 0.7);
     z-index: 1000;
+    padding: 1rem 0;
 }
 
 nav ul {
@@ -31,13 +36,29 @@ nav ul li a {
     display: block;
     color: white;
     text-decoration: none;
-    padding: 20px 0;
+    padding: 10px 20px;
+    transition: color 0.3s ease;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    font-size: 1.2em;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 30px #ff0000;
+    transition: all 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #ff0000;
+    text-shadow: 0 0 15px #ff0000, 0 0 25px #ff0000, 0 0 35px #ff0000;
 }
 
 .seccion {
     height: 100vh;
     position: relative;
     overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .background-image {
@@ -46,7 +67,7 @@ nav ul li a {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('/background-image.jpg');
+    background-image: url('../assets/background-image.jpg');
     background-size: cover;
     background-position: center;
     z-index: 1;
@@ -62,6 +83,7 @@ nav ul li a {
     height: auto;
     transform: translateX(-50%) translateY(-50%);
     z-index: 2;
+    object-fit: cover;
 }
 
 .content {
@@ -69,15 +91,22 @@ nav ul li a {
     z-index: 3;
     color: white;
     text-align: center;
-    padding-top: 50vh;
+    padding: 2rem;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 h1 {
     font-size: 3em;
     margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    font-family: 'Orbitron', sans-serif;
 }
 
 p {
     font-size: 1.5em;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
